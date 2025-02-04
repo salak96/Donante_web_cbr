@@ -21,7 +21,7 @@ class CategoryController extends Controller
             $categories = $categories->where('name', 'like', '%'. request()->q . '%');
         })->paginate(10);
 
-        return view('admin.category.index', compact('categories'));
+        return view('category.index', compact('categories'));
     }
 
     /**
@@ -31,7 +31,7 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        return view('admin.category.create');
+        return view('category.create');
     }
 
     /**
@@ -60,10 +60,10 @@ class CategoryController extends Controller
 
        if($category){
             //redirect dengan pesan sukses
-            return redirect()->route('admin.category.index')->with(['success' => 'Data Berhasil Disimpan!']);
+            return redirect()->route('category.index')->with(['success' => 'Data Berhasil Disimpan!']);
         }else{
             //redirect dengan pesan error
-            return redirect()->route('admin.category.index')->with(['error' => 'Data Gagal Disimpan!']);
+            return redirect()->route('category.index')->with(['error' => 'Data Gagal Disimpan!']);
         }
     }
 
@@ -76,7 +76,7 @@ class CategoryController extends Controller
      */
     public function edit(Category $category)
     {
-        return view('admin.category.edit', compact('category'));
+        return view('category.edit', compact('category'));
     }
 
     /**
@@ -122,10 +122,10 @@ class CategoryController extends Controller
 
         if($category){
             //redirect dengan pesan sukses
-            return redirect()->route('admin.category.index')->with(['success' => 'Data Berhasil Diupdate!']);
+            return redirect()->route('category.index')->with(['success' => 'Data Berhasil Diupdate!']);
         }else{
             //redirect dengan pesan error
-            return redirect()->route('admin.category.index')->with(['error' => 'Data Gagal Diupdate!']);
+            return redirect()->route('category.index')->with(['error' => 'Data Gagal Diupdate!']);
         }
     }
 
